@@ -3,3 +3,45 @@
     for registering new users.
 -->
 {% extends 'base.html' %}
+
+{% block top_left %}
+    <div class="buttons">
+        <a href='/' class='navText' id='home'>winTracker</a>
+    </div>
+{% endblock %}
+
+{% block top_right %}
+
+    <div class="buttons" >
+        <div id='loginDash'>
+        <a href='/dashboard' class='navText'>Profile</a>
+        </div>
+
+        <div id='logout'>
+        <a href='/logout'  class='navText'>Log Out</a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block content_left %}
+    <form action='/register/confirm' id='registration'>
+        <fieldset>
+            <legend>User Details</legend>
+            Username:<input type='text'><br>
+            <br>
+            Password:<input type='text'><br>
+            <br>
+            <br>
+            Public profile? <input type='radio' name='public' value='yes'> Yes <input type='radio' name='public' value='no'>No<br>
+            <button type='submit'>Register</button>
+        </fieldset>
+
+    </form>
+{% endblock %}
+
+{% block content_right %}
+    <div id='regInfo'>
+        <iframe srcdoc='<h1>Eventually information about the site will accompany the login experience.</h1>' id='regFrame'></iframe>
+    </div>
+{% endblock %}

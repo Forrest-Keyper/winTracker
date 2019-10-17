@@ -7,6 +7,19 @@
 
 {% extends 'base.html' %}
 
-{% block content %}
+{% block top_left %}
+    <div class="buttons">
+        <a href='/' class='navText'  id='home'>winTracker</a>
+    </div>
+{% endblock %}
 
+{% block top_right %}
+
+    <div class="buttons" id='loginDash'>
+        <a href='/dashboard/login' class='navText'>Log In</a>
+    </div>
+
+    <div class="buttons" id='accCreate'>
+        <a href='/register' class='navText'>Sign Up</a>
+    </div>
 {% endblock %}

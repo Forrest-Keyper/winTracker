@@ -4,3 +4,19 @@
     Fields on this page MUST match tracker's fields.
 -->
 {% extends 'base.html' %}
+
+{% block top_left %}
+    <div class="buttons">
+        <a href='/' class='navText' id='home'>winTracker</a>
+    </div>
+{% endblock %}
+
+{% block top_right %}
+    <div class="buttons" id='loginDash'>
+        <a href='/dashboard' class='navText'>Profile</a>
+    </div>
+
+    <div class="buttons" id='register'>
+        <a href='/logout' class='navText'>Log Out</a>
+    </div>
+{% endblock %}

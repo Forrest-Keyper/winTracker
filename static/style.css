@@ -1,57 +1,102 @@
-body{
+#body{
     margin: 0;
+
 }
 
 .main{
+    width: 100vw;
+    height: 100vh;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 33% 33% 33%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 4fr 4fr;
+
+    grid-template-areas:
+        "top_left top_right"
+        "content_left content_right"
+        "footer_left footer_right"
 }
 
-.navbar-left{
+.top_left{
+
     background: rgb(0, 102, 255);
     font-family:sans-serif;
-    top:0;
-    height: 100%;
-    padding: 28px;
+
+
 }
 
-.navbar-right{
+.top_right{
     background: rgb(0, 102, 255);
     font-family:sans-serif;
-    top:0;
-    height: 100%;
-    padding: 28px;
+
+}
+
+.content_left{
+    background: rgb(122, 122, 82);
+
+}
+
+.content_right{
+    background: rgb(122, 122, 82);
+}
+
+.footer_left{
+    background: rgb(122, 122, 82);
+}
+
+.footer_right{
+    background: rgb(122, 122, 82);
 }
 
 .buttons{
     background-color: rgb(255, 204, 0);
     font-size: 14pt;
-    margin-left: 0;
-    padding: 25px;
+    padding: 3px;
+    display: flex;
+    margin-top: 9px;
 }
 
 #home{
-    left: 0;
     margin: auto;
-    top:8px;
+    width:100%;
     text-align: center;
-    position: absolute;
+
 }
 
-#login{
-    margin: auto;
-    top:8px;
+
+#loginDash{
+    width:50%;
     text-align: center;
-    position: absolute;
-    right: 100px;
+
 }
 
-#register{
+#accCreate{
+    width: 50%;
+    text-align: right;
+
+}
+
+#logout{
+    width: 50%;
+    text-align: center;
+
+}
+
+#registration{
+    background-color: rgb(255, 204, 0);
+    top: 0;
+    width: 60%;
+    margin-left: 35px;
+    margin-top: 60px;
+}
+
+#regInfo{
+    background-color: rgb(255, 204, 0);
+    width:85%;
+    margin-top:60px;
     right: 0;
-    margin: auto;
-    top:8px;
-    text-align: center;
-    position: absolute;
+}
 
+#regFrame{
+    width: 100%;
+    min-height: 265px;
 }
