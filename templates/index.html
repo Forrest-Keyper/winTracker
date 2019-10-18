@@ -9,17 +9,20 @@
 
 {% block top_left %}
     <div class="buttons">
-        <a href='/' class='navText'  id='home'>winTracker</a>
+        <a href='/' class='navText' id='home'>winTracker</a>
     </div>
 {% endblock %}
 
 {% block top_right %}
 
-    <div class="buttons" id='loginDash'>
-        <a href='/dashboard/login' class='navText'>Log In</a>
+    <div class="buttons" >
+        <div id='loginDash'>
+        <a href='/dashboard' class='navText'>Profile</a>
+        </div>
+
+        <div id='register'>
+        <a href='/register'  class='navText'>Register</a>
+        </div>
     </div>
 
-    <div class="buttons" id='accCreate'>
-        <a href='/register' class='navText'>Sign Up</a>
-    </div>
 {% endblock %}

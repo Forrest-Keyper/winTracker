@@ -1,52 +1,46 @@
-'''
-
-'''
-
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from bson.objectid import ObjectId
 from pymongo import MongoClient
+
+client = MongoClient()
+db = client.Tracker
+users = db.users
+
 app = Flask(__name__)
 
 
 @app.route('/')
-# home page, will expand in following commits
-def index():
+def tracker_index():
     return render_template('index.html')
 
 
-
-
 @app.route('/register')
-# registration page, sign up link should redirect here
+def user_register():
+
+    return render_template('register.html', user={}, title='New User')
+
+
+@app.route('/user/register', methods=['POST'])
 def register():
     user = {
-        'name': request.form.get('username'),
-        'password': request.form.get('password')
+            'username': request.form.get('username'),
+            'password': request.form.get('password'),
+            'public': request.form.get('public')
     }
-    # will eventually need to check for user unique identity
-    # accept user form input for username and email (password later)
-
-    # what does this return statement need to be for the confirmation function?
-    return render_template('register.html')
+    user_id = users.insert_one(user).inserted_id
+    return redirect(url_for('dashboard', user_id=user_id))
 
 
-'''
-@app.route('/user')
+@app.route('/user/register/<user_id>')
+def dashboard(user_id):
+    user = users.find_one({'_id': ObjectId(user_id)})
+    return render_template('dashboard.html', user=user)
+
+
 @app.route('/register/confirm')
 def confirmRegistration():
-
-    # confirm user creation, move to dashboard
     return('templates/dashboard.html')
 
-@app.route('/dashboard')
-def dashboard('/dashboard')
-
-    # checks for user log in, takes user id and displays associated trackers
-    #
-    return('/templates/dashboard.html')
-
-
-'''
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -6,19 +6,25 @@
 {% extends 'base.html' %}
 
 {% block top_left %}
-    <div class="buttons" >
+    <div class="buttons">
         <a href='/' class='navText' id='home'>winTracker</a>
+    </div>
+{% endblock %}
+
+{% block top_right %}
+
+    <div class="buttons" >
+        <div id='loginDash'>
+        <a href='/dashboard' class='navText'>Profile</a>
+        </div>
+
+        <div id='logout'>
+        <a href='/logout'  class='navText'>Log Out</a>
+        </div>
     </div>
 
 {% endblock %}
 
-{% block top-_right %}
-
-    <div class="buttons" id='login'>
-        <a href='/dashboard' class='navText'>Profile</a>
-    </div>
-
-    <div class="buttons" id='register'>
-        <a href='/logout' class='navText'>Log Out</a>
-    </div>
+{% block content_left %}
+<p>{{ user.username }}</p>
 {% endblock %}

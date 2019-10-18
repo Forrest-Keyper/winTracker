@@ -14,7 +14,7 @@
 
     <div class="buttons" >
         <div id='loginDash'>
-        <a href='/dashboard' class='navText'>Profile</a>
+        <a href='/user/<user_id>/dashboard' class='navText'>Profile</a>
         </div>
 
         <div id='logout'>
@@ -25,15 +25,15 @@
 {% endblock %}
 
 {% block content_left %}
-    <form action='/register/confirm' id='registration'>
+    <form method='POST' action='{{ url_for("register") }}' id='registration'>
         <fieldset>
             <legend>User Details</legend>
-            Username:<input type='text'><br>
+            Username:<input type='text' name='username' value='{{ user.username }}'/><br>
             <br>
-            Password:<input type='text'><br>
+            Password:<input type='text' name='password' value='{{ user.password }}'/><br>
             <br>
             <br>
-            Public profile? <input type='radio' name='public' value='yes'> Yes <input type='radio' name='public' value='no'>No<br>
+            Public profile? <input type='radio' name='public' value='{{ user.public }}'> Yes <input type='radio' name='public' value='user.public'>No<br>
             <button type='submit'>Register</button>
         </fieldset>
 
