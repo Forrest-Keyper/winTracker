@@ -64,13 +64,13 @@
 
 
 #loginDash{
-    width:50%;
+    width:25%;
     text-align: center;
 
 }
 
 #accCreate{
-    width: 50%;
+    width: 25%;
     text-align: right;
 
 }
@@ -81,7 +81,7 @@
 
 }
 
-#registration{
+.accountInfo{
     background-color: rgb(255, 204, 0);
     top: 0;
     width: 60%;

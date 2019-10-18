@@ -20,12 +20,16 @@
         <div id='logout'>
         <a href='/logout'  class='navText'>Log Out</a>
         </div>
+
+        <div id='update'>
+        <a href='/user/<user_id>/update'  class='navText'>Update profile</a>
+        </div>
     </div>
 
 {% endblock %}
 
 {% block content_left %}
-    <form method='POST' action='{{ url_for("register") }}' class='accountInfo'>
+    <form method='POST' action='{{ url_for("update") }}' id='registration'>
         <fieldset>
             <legend>User Details</legend>
             Username:<input type='text' name='username' value='{{ user.username }}'/><br>
@@ -34,6 +38,7 @@
             <br>
             <button type='submit'>Register</button>
         </fieldset>
+
     </form>
 {% endblock %}
 

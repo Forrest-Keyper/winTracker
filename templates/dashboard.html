@@ -21,10 +21,27 @@
         <div id='logout'>
         <a href='/logout'  class='navText'>Log Out</a>
         </div>
+
+        <div id='update'>
+        <a href='/user/<user_id>/edit'  class='navText'>Update profile</a>
+        </div>
     </div>
 
 {% endblock %}
 
 {% block content_left %}
-<p>{{ user.username }}</p>
+<div class='accountInfo'>
+    <fieldset>
+    <ul>
+        <h3>Account Info</h3>
+        <li><p>Username: {{ user.username }}</p></li>
+        <li><p>Password: {{ user.password }}</p></li>
+    </fieldset>
+</div>
+{% endblock %}
+
+{% block content_right %}
+    <div id='regInfo'>
+        <iframe srcdoc='<h1>Eventually information about the site will accompany the login experience.</h1>' id='regFrame'></iframe>
+    </div>
 {% endblock %}

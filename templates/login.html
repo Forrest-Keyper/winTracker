@@ -25,12 +25,12 @@
 {% endblock %}
 
 {% block content_left %}
-    <form method='POST' action='{{ url_for("register") }}' class='accountInfo'>
+    <form method='POST' action='{{ url_for("loginAct") }}' class='accountInfo'>
         <fieldset>
             <legend>User Details</legend>
             Username:<input type='text' name='username' value='{{ user.username }}'/><br>
             <br>
-            Password:<input type='text' name='password' value='{{ user.password }}'/><br>
+            Password:<input type='text' name='password'/><br>
             <br>
             <button type='submit'>Register</button>
         </fieldset>
