@@ -32,16 +32,15 @@ def register():
     return redirect(url_for('dashboard', user_id=user_id))
 
 
-@app.route('/user/login')
+@app.route('/user/login', )
 def loginForm():
     username = request.form.get('username')
-    user = users.find_one({'username': username})
-    user_id = user.inserted_id
-    return render_template('login.html', user_id=user_id)
+    userObj = users.find_one({'username': username})
+    return render_template('login.html')
 
-@app.route('/user/login/<user_id>')
+@app.route('/user/login/<user_id>', methods=['POST'])
 def loginAct(user_id):
-
+    userObj = users.find_one({'username': request.form.get('username')})
     return redirect(url_for('dashboard', user_id=user_id))
 
 
@@ -49,9 +48,19 @@ def loginAct(user_id):
 def dashboard(user_id):
     # eventually will display user's trackers which will link to individual tracker management page
     userObj = users.find_one({'_id': ObjectId(user_id)})
+    user_id = userObj
     user = userObj
     print(userObj)
     return render_template('dashboard.html', user=user)
+
+
+@app.route('/user/<user_id>/dashboard/edit')
+def user_edit(user_id):
+    # renders the form for user to update their settings
+    user = users.find_one({'_id': ObjectId(user_id)})
+    user_id = user._id
+    print(user)
+    return render_template('updateUser.html', user_id=user_id)
 
 
 @app.route('/user/<user_id>/update', methods=['POST'])
@@ -64,14 +73,6 @@ def update(user_id):
     }
     user_id = users.insert_one(user).inserted_id
     return redirect(url_for('dashboard', user_id=user_id))
-
-
-@app.route('/user/<user_id>/edit')
-def user_edit(user_id):
-    # renders the form for user to update their settings
-    print(user_id)
-    user = client.db.users.find_one({'_id': ObjectId(user_id)})
-    return render_template('updateUser.html', user_id=user_id)
 
 
 if __name__ == "__main__":

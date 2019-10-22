@@ -22,9 +22,6 @@
         <a href='/logout'  class='navText'>Log Out</a>
         </div>
 
-        <div id='update'>
-        <a href='/user/<user_id>/edit'  class='navText'>Update profile</a>
-        </div>
     </div>
 
 {% endblock %}
@@ -36,6 +33,13 @@
         <h3>Account Info</h3>
         <li><p>Username: {{ user.username }}</p></li>
         <li><p>Password: {{ user.password }}</p></li>
+    </ul>
+
+    <form method="POST" action='{{ url_for("update") }}'>
+        <a href=''  class='navText'>Update profile</a>
+        <button type="submit"
+    </form>
+
     </fieldset>
 </div>
 {% endblock %}

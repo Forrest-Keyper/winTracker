@@ -31,20 +31,20 @@
 }
 
 .content_left{
-    background: rgb(122, 122, 82);
+    background: rgb(0, 204, 0)
 
 }
 
 .content_right{
-    background: rgb(122, 122, 82);
+    background: rgb(0, 204, 0)
 }
 
 .footer_left{
-    background: rgb(122, 122, 82);
+    background: rgb(0, 204, 0)
 }
 
 .footer_right{
-    background: rgb(122, 122, 82);
+    background: rgb(0, 204, 0)
 }
 
 .buttons{
@@ -64,13 +64,13 @@
 
 
 #loginDash{
-    width:25%;
+    width:50%;
     text-align: center;
 
 }
 
 #accCreate{
-    width: 25%;
+    width: 50%;
     text-align: right;
 
 }
